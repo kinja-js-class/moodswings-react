@@ -21,6 +21,11 @@ describe('moodswings tests', () => {
 		const wrapper = shallow(<App />);
 		chai.expect(wrapper.find('#mood-range')).to.have.length(1);
 	});
+	it('the #mood-range input should have value equal to passed moodValue', () => {
+		const wrapper = shallow(<App moodValue="0" />);
+		const rangeInput = wrapper.find('#mood-range');
+		chai.expect(rangeInput.props().value).to.equal('0');
+	});
 });
 
 describe('moodswingsApp reducer tests', () => {

@@ -12,7 +12,7 @@ export class App extends React.Component {
 		return (
 			<div>
 				<div id="mood-emoj">{this.props.currentMood}</div>
-				<input id="mood-range" type="range" min="-100" max="100" />
+				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} />
 			</div>
 	)}
 }
