@@ -10,7 +10,10 @@ export class App extends React.Component {
 	// list of saved moods
 	render() {
 		return (
-			<div id="mood-emoj">{this.props.currentMood}</div>
+			<div>
+				<div id="mood-emoj">{this.props.currentMood}</div>
+				<input id="mood-range" type="range" min="-100" max="100" />
+			</div>
 	)}
 }
 
