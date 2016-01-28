@@ -1,7 +1,7 @@
-export function addMood(payload) {
-  return {
-    type: 'ADD_MOOD',
-		payload
-  }
+export function updateMood (moodValue) {
+	return {
+		type: 'UPDATE_MOOD',
+		moodValue
+	}
 }
 

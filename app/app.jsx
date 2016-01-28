@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { connect } from 'react-redux';
 
+import { updateMood } from './actions/actions';
+
 export class App extends React.Component {
 	// mood emoj
 	// location button
@@ -12,7 +14,7 @@ export class App extends React.Component {
 		return (
 			<div>
 				<div id="mood-emoj">{this.props.currentMood}</div>
-				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} />
+				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} onChange= {(e) => this.props.dispatch(updateMood(e.target.value))} />
 			</div>
 	)}
 }
