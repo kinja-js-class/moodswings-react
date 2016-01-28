@@ -1,5 +1,6 @@
 const initialState = {
 	currentMood: 'Neutral',
+	moodValue: 0,
 	moods: []
 }
 
