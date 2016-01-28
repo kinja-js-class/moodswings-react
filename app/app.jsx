@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { connect } from 'react-redux';
 
-class App extends React.Component {
+export class App extends React.Component {
 	// mood emoj
 	// location button
 	// save button
