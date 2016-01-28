@@ -1,5 +1,6 @@
 const initialState = {
-  moods: []
+	currentMood: 'Neutral',
+	moods: []
 }
 
 export function moodswingsApp(state = initialState, action) {

@@ -10,4 +10,8 @@ describe('moodswings tests', () => {
 		const wrapper = shallow(<App />);
 		chai.expect(wrapper.find('#mood-emoj')).to.have.length(1);
 	});
+	it('#mood-emoj should display mood', () => {
+		const wrapper = shallow(<App currentMood="Neutral" />);
+		chai.expect(wrapper.text()).to.contain('Neutral');
+	});
 });

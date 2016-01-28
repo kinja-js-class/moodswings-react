@@ -10,7 +10,7 @@ export class App extends React.Component {
 	// list of saved moods
 	render() {
 		return (
-			<div>Mood Emoj</div>
+			<div id="mood-emoj">{this.props.currentMood}</div>
 	)}
 }
 
