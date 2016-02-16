@@ -5,3 +5,10 @@ export function updateMood (moodValue) {
 	}
 }
 
+export function saveCurrentMood (currentMoodValue) {
+	return {
+		type: 'SAVE_CURRENT_MOOD',
+		currentMoodValue
+	}
+}
+

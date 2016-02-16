@@ -1,5 +1,4 @@
 const initialState = {
-	currentMood: 'Neutral',
 	moodValue: 0,
 	moods: []
 };
@@ -9,6 +8,13 @@ export function moodswingsApp(state = initialState, action) {
 		case 'UPDATE_MOOD':
 			return Object.assign({}, state, {
 				moodValue: action.moodValue
+			});
+		case 'SAVE_CURRENT_MOOD':
+			return Object.assign({}, state, {
+				moods: [...state.moods, {
+					moodValue: action.currentMoodValue,
+					timeStamp: Date.now()
+				}]
 			});
 		default:
 			return state;
