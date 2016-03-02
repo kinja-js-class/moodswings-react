@@ -24,6 +24,10 @@ export class App extends React.Component {
 					<img src={`app/images/moods/${this.getMoodImage(this.props.moodValue)}.png`} />
 				</div>
 				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} onChange= {(e) => this.props.firedux.set('moodValue', e.target.value)} />
+				<button id="save-mood" onClick={(e) => this.props.firedux.push('moods', {
+					'mood': this.props.moodValue,
+					'date': Date.now()
+				})}>Save</button>
 			</div>
 	)}
 }
