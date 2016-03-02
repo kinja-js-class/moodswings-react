@@ -1,14 +1,1 @@
-export function updateMood (moodValue) {
-	return {
-		type: 'UPDATE_MOOD',
-		moodValue
-	}
-}
-
-export function saveCurrentMood (currentMoodValue) {
-	return {
-		type: 'SAVE_CURRENT_MOOD',
-		currentMoodValue
-	}
-}
-
+// We are using firedux as prop and let it magic do the tricks

@@ -49,7 +49,7 @@ class Root extends React.Component {
 		return (
 			<Provider store={store}>
 				<div>
-					<App />
+					<App firedux={firedux}/>
 					<DevTools />
 				</div>
 			</Provider>

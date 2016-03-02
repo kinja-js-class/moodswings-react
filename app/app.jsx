@@ -23,14 +23,13 @@ export class App extends React.Component {
 				<div id="mood-emoj">
 					<img src={`app/images/moods/${this.getMoodImage(this.props.moodValue)}.png`} />
 				</div>
-				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} onChange= {(e) => this.props.dispatch(updateMood(e.target.value))} />
-				<button onClick={(e) => this.props.dispatch(saveCurrentMood(this.props.moodValue))}>Save</button>
+				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} onChange= {(e) => this.props.firedux.set('moodValue', e.target.value)} />
 			</div>
 	)}
 }
 
 function selector (state) {
-	return state;
+	return state.firedux.data;
 }
 
 export default connect(selector)(App)
