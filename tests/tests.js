@@ -13,9 +13,9 @@ describe('moodswings tests', () => {
 		const wrapper = shallow(<App />);
 		chai.expect(wrapper.find('#mood-emoj')).to.have.length(1);
 	});
-	it('#mood-emoj should display mood', () => {
-		const wrapper = shallow(<App currentMood="Neutral" />);
-		chai.expect(wrapper.text()).to.contain('Neutral');
+	it('#mood-emoj should display an image', () => {
+		const wrapper = shallow(<App moodValue="0" />);
+		chai.expect(wrapper.html()).to.contain('<img src="app/images/moods/neutral.png"/>');
 	});
 	it('should find the #mood-range element', () => {
 		const wrapper = shallow(<App />);
@@ -31,7 +31,6 @@ describe('moodswings tests', () => {
 describe('moodswingsApp reducer tests', () => {
 	it('state should be equal to initialState fixture', () => {
 		const initialStateFixture = {
-			currentMood: 'Neutral',
 			moodValue: 0,
 			moods: []
 		};
