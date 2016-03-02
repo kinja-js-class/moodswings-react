@@ -22,25 +22,26 @@ const firedux = new Firedux({
   omit: ['$localState'] // Properties to reserve for local use and not sync with Firebase.
 })
 
-const reducer = combineReducers({
-  firedux: firedux.reducer(),
-	moodswingsApp: moodswingsApp
-})
+const reducer =  firedux.reducer();
 
 
 // create store with middleware, including thunk.
-const store = compose(applyMiddleware(
-	thunk
-),
-DevTools.instrument())
-(createStore)(reducer)
+const store = createStore(
+  reducer,
+	{data: {moods: {}}},
+  compose(
+    applyMiddleware(thunk),
+    DevTools.instrument()
+  )
+)
 
 
 firedux.dispatch = store.dispatch
 
 firedux.init()
 
-firedux.watch('moodValue')
+firedux.watch('moodValue');
+firedux.watch('moods');
 window.firedux = firedux
 
 

@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import { updateMood, saveCurrentMood } from './actions/actions';
 
+import { Moodlist } from './Moodlist.jsx'
+
 export class App extends React.Component {
 	getMoodImage(moodValue) {
 	    return moodValue < -50 ? 'veryunhappy' :
@@ -28,12 +30,13 @@ export class App extends React.Component {
 					'mood': this.props.moodValue,
 					'date': Date.now()
 				})}>Save</button>
+				<Moodlist moods={this.props.moods}/>
 			</div>
 	)}
 }
 
 function selector (state) {
-	return state.firedux.data;
+	return state.data;
 }
 
 export default connect(selector)(App)
