@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+		"start": "webpack-dev-server",
     "test": "mocha --compilers js:babel-register tests/tests.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "firedux": "^0.6.2",
     "react": "^0.14.6",
     "react-redux": "^4.0.6",
     "redux": "^3.0.5"
