@@ -37,7 +37,7 @@ export function startListeningToAuth(dispatch, firedux) {
                 });
             } else {
                 if (getState().auth.currently !== 'ANONYMOUS') { // log out if not already logged out
-                    dispatch({ type: C.LOGOUT });
+                    dispatch({ type: 'LOGOUT' });
                 }
             }
         });
