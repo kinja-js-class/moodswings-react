@@ -33,7 +33,7 @@ export function startListeningToAuth(dispatch, firedux) {
                 dispatch({
                     type: 'LOGIN_USER',
                     uid: authData.uid,
-                    username: authData.github.displayName || authData.github.username
+                    username: authData.google.displayName || authData.google.username
                 });
             } else {
                 if (getState().auth.currently !== 'ANONYMOUS') { // log out if not already logged out
@@ -42,4 +42,11 @@ export function startListeningToAuth(dispatch, firedux) {
             }
         });
     }
+}
+
+export function logoutUser(dispatch, firedux){
+    return function(dispatch, getState){
+        dispatch({type: 'LOGOUT'});
+        firedux.ref.unauth();
+    };
 }
