@@ -15,7 +15,13 @@ export class Moodlist extends React.Component {
 									<MoodSmiley moodValue={this.props.moods[moodkey].mood} />
 								</div>
 							</td>
-							</tr>
+							<td>
+							{ this.props.moods[moodkey].position ?
+									<p>🌐 {this.props.moods[moodkey].position.latitude, this.props.moods[moodkey].position.latitude}</p>
+								: null
+							}
+							</td>
+						</tr>
 						)}
 						</tbody></table>
 	}

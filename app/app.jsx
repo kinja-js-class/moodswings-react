@@ -46,7 +46,8 @@ export class App extends React.Component {
 				<button id="save-mood" onClick={(e) => this.props.firedux.push('moods', {
 					'mood': this.props.moodValue,
 					'date': Date.now(),
-					'position': this.props.local.position
+					'position': this.props.local.position,
+					'uid': this.props.auth.uid
 				})}>Save</button>
 				<Moodlist moods={this.props.moods}/>
 			</div>
@@ -54,7 +55,7 @@ export class App extends React.Component {
 }
 
 function selector (state) {
-	return {...state.firedux.data, local: state.local};
+	return {...state.firedux.data, local: state.local, auth: state.auth};
 }
 
 export default connect(selector)(App)
