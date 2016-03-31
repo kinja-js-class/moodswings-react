@@ -8,10 +8,11 @@ import thunk from 'redux-thunk'
 
 import DevTools from './devtools'
 
-import { moodswingsApp } from './reducers/reducers'
+import { moodswingsApp, authReducer } from './reducers/reducers'
 
 
 import App from './app.jsx'
+import { startListeningToAuth } from './actions/actions'
 
 import Firedux from 'firedux'
 
@@ -24,14 +25,20 @@ const firedux = new Firedux({
 
 const reducer =  combineReducers({
 	firedux: firedux.reducer(),
-	local: moodswingsApp
+	local: moodswingsApp,
+	auth: authReducer
 })
 
 
 // create store with middleware, including thunk.
 const store = createStore(
   reducer,
-	{local: [], firedux: {data: {moods: {}}}},
+	{local: [], firedux: {data: {moods: {}}},
+		auth: {
+			currently: 'ANONYMOUS',
+			username: null,
+			uid: null
+	}},
   compose(
     applyMiddleware(thunk),
     DevTools.instrument()
@@ -63,3 +70,9 @@ class Root extends React.Component {
 }
 
 ReactDOM.render(<Root />, document.getElementById('moodswings'))
+
+
+// setup Firebase listeners
+setTimeout(function(){
+	store.dispatch( startListeningToAuth(store.dispatch, firedux) );
+});

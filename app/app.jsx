@@ -9,6 +9,8 @@ import { Moodlist } from './Moodlist.jsx'
 
 import { MoodSmiley } from './MoodSmiley.jsx'
 
+import LoginButton from './LoginButton.jsx'
+
 export class App extends React.Component {
 	getMoodImage(moodValue) {
 	    return moodValue < -50 ? 'veryunhappy' :
@@ -18,7 +20,6 @@ export class App extends React.Component {
 	}
 
 	componentDidMount () {
-		console.log('hi')
 		navigator.geolocation.getCurrentPosition(
 			(position) => {
 			console.log(position.coords)
@@ -39,6 +40,7 @@ export class App extends React.Component {
 	render() {
 		return (
 			<div>
+				<LoginButton firedux={firedux} />
 				<MoodSmiley moodValue={this.props.moodValue} />
 				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} onChange= {(e) => this.props.firedux.set('moodValue', e.target.value)} />
 				<button id="save-mood" onClick={(e) => this.props.firedux.push('moods', {
