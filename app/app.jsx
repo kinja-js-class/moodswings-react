@@ -7,6 +7,7 @@ import { updateposition, youAreLost } from './actions/actions';
 
 import { Moodlist } from './Moodlist.jsx'
 
+import { MoodSmiley } from './MoodSmiley.jsx'
 
 export class App extends React.Component {
 	getMoodImage(moodValue) {
@@ -38,9 +39,7 @@ export class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<div id="mood-emoj">
-					<img src={`app/images/moods/${this.getMoodImage(this.props.moodValue)}.png`} />
-				</div>
+				<MoodSmiley moodValue={this.props.moodValue} />
 				<input id="mood-range" type="range" min="-100" max="100" value={this.props.moodValue} onChange= {(e) => this.props.firedux.set('moodValue', e.target.value)} />
 				<button id="save-mood" onClick={(e) => this.props.firedux.push('moods', {
 					'mood': this.props.moodValue,
